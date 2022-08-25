@@ -20,6 +20,7 @@ const Filter = () => {
             })
           }
         >
+          <option value='none'>None</option>
           <option value='Jacksonville'>Jacksonville, Florida</option>
           <option value='LosAngeles'>Los Angeles, California</option>
           <option value='>Chicago'>Chicago, Illinois</option>

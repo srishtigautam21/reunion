@@ -17,6 +17,7 @@ const useFilterHook = () => {
   console.log("location filter", locationFilterData);
 
   const priceFilterData = getPriceFilter(locationFilterData, sortByPrice);
+  console.log("price filter", priceFilterData);
 
   const finalFilterData = getHouseTypeFilter(priceFilterData, sortByHouse);
 

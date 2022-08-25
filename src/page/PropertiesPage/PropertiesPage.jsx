@@ -11,7 +11,7 @@ const PropertiesPage = () => {
     <div className='property-page-container'>
       <Filter />
       <div className='page-wrapper'>
-        {propertyData.map((data) => (
+        {finalFilterData.map((data) => (
           <Card key={data.id} data={data} />
         ))}
       </div>

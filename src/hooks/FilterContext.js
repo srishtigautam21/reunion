@@ -10,10 +10,10 @@ const FilterContext = createContext({});
 
 const FilterProvider = ({ children }) => {
   // eslint-disable-next-line
-  const [properties, setProperties] = useState([]);
-  useEffect(() => {
-    setProperties((prev) => [...prev, propertyData]);
-  }, []);
+  const [properties, setProperties] = useState(propertyData);
+  // useEffect(() => {
+  //   setProperties((prev) => [...prev, propertyData]);
+  // }, []);
 
   useEffect(() => {
     filterDispatch({ type: "initializer", payload: properties });
