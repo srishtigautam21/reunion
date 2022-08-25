@@ -1,7 +1,7 @@
 import {
   useContext,
   createContext,
-  useState,
+  // useState,
   useReducer,
   useEffect,
 } from "react";
@@ -10,20 +10,20 @@ const FilterContext = createContext({});
 
 const FilterProvider = ({ children }) => {
   // eslint-disable-next-line
-  const [properties, setProperties] = useState(propertyData);
+  // const [properties, setProperties] = useState(propertyData);
   // useEffect(() => {
   //   setProperties((prev) => [...prev, propertyData]);
   // }, []);
 
   useEffect(() => {
-    filterDispatch({ type: "initializer", payload: properties });
-  }, [properties]);
+    filterDispatch({ type: "initializer", payload: propertyData });
+  }, []);
 
   const initialFilterState = {
     sortByLocation: "none",
     sortByPrice: "none",
     sortByHouse: "none",
-    updatedProperties: properties,
+    updatedProperties: [],
   };
   // console.log(initialFilterState.sortByPrice);
   // console.log(initialFilterState.sortByLocation);
@@ -51,6 +51,11 @@ const FilterProvider = ({ children }) => {
           ...state,
           sortByHouse: action.payload,
         };
+      case "CLEAR_ALL":
+        return {
+          ...action.payload,
+          updatedProperties: [...state.updatedProperties],
+        };
 
       default:
         return state;
@@ -63,7 +68,7 @@ const FilterProvider = ({ children }) => {
   );
   return (
     <FilterContext.Provider
-      value={{ filterDispatch, filterState, initialFilterState, properties }}
+      value={{ filterDispatch, filterState, initialFilterState }}
     >
       {children}
     </FilterContext.Provider>

@@ -21,9 +21,9 @@ const useFilterHook = () => {
 
   const finalFilterData = getHouseTypeFilter(priceFilterData, sortByHouse);
 
-  if (finalFilterData.length === 0) {
-    return updatedProperties;
-  }
+  // if (finalFilterData.length === 0) {
+  //   return updatedProperties;
+  // }
   return finalFilterData; //Final data after all filters are applied
 };
 

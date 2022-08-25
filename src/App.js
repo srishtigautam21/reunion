@@ -1,4 +1,5 @@
 import "./App.css";
+import { FavouritePage } from "./page/FavouritePage/FavouritePage";
 import { PropertiesPage } from "./page/PropertiesPage/PropertiesPage";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         </a>
       </header> */}
       <PropertiesPage />
+      <FavouritePage />
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { useFilter } from "../../hooks/FilterContext";
 
 const Filter = () => {
-  const { filterDispatch, properties, filterState } = useFilter();
+  const { filterDispatch, filterState } = useFilter();
   return (
     <div>
       <label htmlFor='input-location'>
@@ -25,7 +25,7 @@ const Filter = () => {
           <option value='LosAngeles'>Los Angeles, California</option>
           <option value='>Chicago'>Chicago, Illinois</option>
           <option value='SanFrancisco'>San Francisco, California</option>
-          <option value='Houston'>Houston, Texas</option>
+          <option value='Houstan'>Houstan, Texas</option>
         </select>
       </label>
       <label htmlFor='input-price'>

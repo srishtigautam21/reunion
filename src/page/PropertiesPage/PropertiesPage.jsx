@@ -3,17 +3,35 @@ import { propertyData } from "../../db";
 import { Card } from "../../component/Card/Card";
 import { Filter } from "../../component/Filter/Filter";
 import { useFilterHook } from "../../hooks/useFilterHook";
+import { useFilter } from "../../hooks/FilterContext";
 
 const PropertiesPage = () => {
   const finalFilterData = useFilterHook();
-  console.log("In properties", finalFilterData);
+  const { filterDispatch, initialFilterState } = useFilter();
+  // console.log("In properties", finalFilterData);
+  const backToInitialProperties = () => {
+    filterDispatch({ type: "initializer", payload: propertyData });
+    filterDispatch({
+      type: "CLEAR_ALL",
+      payload: {
+        ...initialFilterState,
+      },
+    });
+  };
   return (
     <div className='property-page-container'>
       <Filter />
       <div className='page-wrapper'>
-        {finalFilterData.map((data) => (
-          <Card key={data.id} data={data} />
-        ))}
+        {finalFilterData.length === 0 ? (
+          <div>
+            <div>No properties match the given filter</div>
+            <button onClick={() => backToInitialProperties()}>
+              Check other properties
+            </button>
+          </div>
+        ) : (
+          finalFilterData.map((data) => <Card key={data.id} data={data} />)
+        )}
       </div>
     </div>
   );

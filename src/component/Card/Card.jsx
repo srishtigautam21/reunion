@@ -1,7 +1,14 @@
 import React from "react";
+import { useFavourite } from "../../hooks/FavouriteContext";
 
 const Card = ({ id, data }) => {
   const { rent, name, address, noOfBeds, noOfBathroom, area } = data;
+  const { favouritePropertyList, addToFavourites, removeFromFavourites } =
+    useFavourite();
+
+  const isInFavourites = favouritePropertyList.findIndex(
+    (property) => property.id === id
+  );
   return (
     <div>
       <div className='parent-positioning '>
@@ -16,6 +23,17 @@ const Card = ({ id, data }) => {
             <p>{noOfBathroom} bathroom</p>
             <p>{area} sq.meter</p>
           </div>
+          {isInFavourites === -1 ? (
+            <i
+              className='fa fa-heart-o icon-btn icon-size icon-overlay'
+              onClick={() => addToFavourites(data)}
+            ></i>
+          ) : (
+            <i
+              class='fa fa-heart icon-btn icon-size filled-icon-overlay'
+              onClick={() => removeFromFavourites(id)}
+            ></i>
+          )}
           {/* <span className='card-item-cost margin'>Rs.{price}</span> */}
           {/* {discount && ( */}
           {/* <>
