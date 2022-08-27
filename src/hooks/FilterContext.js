@@ -1,20 +1,8 @@
-import {
-  useContext,
-  createContext,
-  // useState,
-  useReducer,
-  useEffect,
-} from "react";
+import { useContext, createContext, useReducer, useEffect } from "react";
 import { propertyData } from "../db";
 const FilterContext = createContext({});
 
 const FilterProvider = ({ children }) => {
-  // eslint-disable-next-line
-  // const [properties, setProperties] = useState(propertyData);
-  // useEffect(() => {
-  //   setProperties((prev) => [...prev, propertyData]);
-  // }, []);
-
   useEffect(() => {
     filterDispatch({ type: "initializer", payload: propertyData });
   }, []);
@@ -25,11 +13,8 @@ const FilterProvider = ({ children }) => {
     sortByHouse: "none",
     updatedProperties: [],
   };
-  // console.log(initialFilterState.sortByPrice);
-  // console.log(initialFilterState.sortByLocation);
-  // console.log(initialFilterState.sortByHouse);
+
   const filterReducer = (state, action) => {
-    // console.log("into reducer", action.type, action.payload);
     switch (action.type) {
       case "initializer":
         return {

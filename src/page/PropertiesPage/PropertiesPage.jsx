@@ -8,7 +8,7 @@ import { useFilter } from "../../hooks/FilterContext";
 const PropertiesPage = () => {
   const finalFilterData = useFilterHook();
   const { filterDispatch, initialFilterState } = useFilter();
-  // console.log("In properties", finalFilterData);
+
   const backToInitialProperties = () => {
     filterDispatch({ type: "initializer", payload: propertyData });
     filterDispatch({
