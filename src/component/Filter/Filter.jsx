@@ -1,17 +1,18 @@
 import React from "react";
 import { useFilter } from "../../hooks/FilterContext";
+import { Link } from "react-router-dom";
+import "./Filter.css";
 
 const Filter = () => {
   const { filterDispatch, filterState } = useFilter();
   return (
-    <div>
-      <label htmlFor='input-location'>
+    <div className='filter-wrapper'>
+      <label className='filter-input' htmlFor='input-location'>
         Location:
         <select
           id='input-location'
           name='tags'
-          className='border-note sm-pd tags'
-          placeholder='Select your preferred location'
+          className='border sm-pd'
           value={filterState.sortByLocation}
           onChange={(e) =>
             filterDispatch({
@@ -23,17 +24,17 @@ const Filter = () => {
           <option value='none'>None</option>
           <option value='Jacksonville'>Jacksonville, Florida</option>
           <option value='LosAngeles'>Los Angeles, California</option>
-          <option value='>Chicago'>Chicago, Illinois</option>
+          <option value='Chicago'>Chicago, Illinois</option>
           <option value='SanFrancisco'>San Francisco, California</option>
           <option value='Houstan'>Houstan, Texas</option>
         </select>
       </label>
-      <label htmlFor='input-price'>
+      <label className='filter-input' htmlFor='input-price'>
         Price:
         <select
           id='input-price'
           name='price'
-          className='border-note sm-pd tags'
+          className='border sm-pd'
           placeholder='select the price range'
           value={filterState.sortByPrice}
           onChange={(e) =>
@@ -49,12 +50,12 @@ const Filter = () => {
           <option value='three'>$3500-$5000</option>
         </select>
       </label>
-      <label htmlFor='property-type'>
+      <label className='filter-input' htmlFor='property-type'>
         Property Type:
         <select
           id='property-type'
           name='property'
-          className='border-note sm-pd tags'
+          className='border sm-pd'
           placeholder='Select the type of property'
           value={filterState.sortByHouse}
           onChange={(e) =>
@@ -70,6 +71,9 @@ const Filter = () => {
           <option value='studio-apartment'>Studio apartment</option>
         </select>
       </label>
+      <Link to='/favourite'>
+        <button className='lg-button'>Favourite Page</button>
+      </Link>
     </div>
   );
 };

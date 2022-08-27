@@ -1,20 +1,31 @@
 import React from "react";
+import { useFavourite } from "../../hooks/FavouriteContext";
 
 const FavouriteCard = ({ favouritePropertyList }) => {
+  const { removeFromFavourites } = useFavourite();
+  const { rent, name, address, noOfBeds, noOfBathroom, area, id } =
+    favouritePropertyList;
   return (
-    <div className='h-100'>
-      <h1 className='cart-page-header'>My Favourites</h1>
-      <h2 className='cart-page-header'>
-        Your Favourites Page has {favouritePropertyList.length} items
-      </h2>
-      <div className='vertical-cards'>
-        {favouritePropertyList.map((item) => {
-          const { rent, name, address, noOfBeds, noOfBathroom, area, id } =
-            item;
-          return (
-            <div key={id}>
-              <div>{name}</div>
-              {/* <div className='wishlistCard-container  w-100'>
+    <div>
+      <div className='parent-positioning '>
+        {/* <img src={image} alt={name}></img> */}
+        <div className='inside-container '>
+          <h2>$ {rent}</h2>
+          <h3>{name}</h3>
+          {/* <span className='card-content'>{categoryName}</span> */}
+          <p>{address}</p>
+          <div>
+            <p>{noOfBeds} beds</p>
+            <p>{noOfBathroom} bathroom</p>
+            <p>{area} sq.meter</p>
+          </div>
+
+          <i
+            className='fa fa-heart icon-btn icon-size filled-icon-overlay'
+            onClick={() => removeFromFavourites(id)}
+          ></i>
+
+          {/* <div className='wishlistCard-container  w-100'>
                 <div className=' card-container bottom-margin'>
                   <div className='parent-positioning'>
                     <img src={image} alt={name} />
@@ -66,9 +77,7 @@ const FavouriteCard = ({ favouritePropertyList }) => {
                   </div>
                 </div>
               </div> */}
-            </div>
-          );
-        })}
+        </div>
       </div>
     </div>
   );

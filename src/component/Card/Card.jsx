@@ -1,8 +1,9 @@
 import React from "react";
 import { useFavourite } from "../../hooks/FavouriteContext";
+import "./Card.css";
 
 const Card = ({ id, data }) => {
-  const { rent, name, address, noOfBeds, noOfBathroom, area } = data;
+  const { rent, name, address, noOfBeds, noOfBathroom, area, image } = data;
   const { favouritePropertyList, addToFavourites, removeFromFavourites } =
     useFavourite();
 
@@ -11,8 +12,8 @@ const Card = ({ id, data }) => {
   );
   return (
     <div>
-      <div className='parent-positioning '>
-        {/* <img src={image} alt={name}></img> */}
+      <div className='parent-positioning card-container'>
+        <img src={image} alt={name}></img>
         <div className='inside-container '>
           <h2>$ {rent}</h2>
           <h3>{name}</h3>
@@ -30,7 +31,7 @@ const Card = ({ id, data }) => {
             ></i>
           ) : (
             <i
-              class='fa fa-heart icon-btn icon-size filled-icon-overlay'
+              className='fa fa-heart icon-btn icon-size filled-icon-overlay'
               onClick={() => removeFromFavourites(id)}
             ></i>
           )}

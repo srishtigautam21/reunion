@@ -5,15 +5,18 @@ import App from "./App";
 // import reportWebVitals from './reportWebVitals';
 import { FilterProvider } from "./hooks/FilterContext";
 import { FavouriteProvider } from "./hooks/FavouriteContext";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <FilterProvider>
-      <FavouriteProvider>
-        <App />
-      </FavouriteProvider>
-    </FilterProvider>
+    <Router>
+      <FilterProvider>
+        <FavouriteProvider>
+          <App />
+        </FavouriteProvider>
+      </FilterProvider>
+    </Router>
   </React.StrictMode>
 );
 

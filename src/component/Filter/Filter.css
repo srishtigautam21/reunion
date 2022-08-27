@@ -1,0 +1,35 @@
+.filter-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: rgb(254, 250, 250);
+  border-radius: 1rem;
+
+  max-width: 70vw;
+  margin: auto;
+}
+.sm-pd {
+  padding: 1rem;
+}
+.border {
+  border: none;
+  background-color: rgb(254, 250, 250);
+}
+.filter-input {
+  display: flex;
+  flex-direction: column;
+  color: lightslategray;
+}
+.lg-button {
+  background-color: var(--COLOR-PRIMARY);
+  color: var(--COLOR-WHITE);
+  border-radius: 3px;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 1rem 1rem;
+  width: 12rem;
+  height: 4rem;
+}
