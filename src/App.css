@@ -13,3 +13,8 @@
   --COLOR-WHITE: rgb(255, 255, 255);
   --RED-COLOR: rgb(231, 34, 34);
 }
+.footer {
+  display: block;
+  text-align: center;
+  padding: 2rem;
+}

@@ -1,9 +1,12 @@
-import React from "react";
+import { useState } from "react";
 import { useFilter } from "../../hooks/FilterContext";
 import { Link } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import "./Filter.css";
 
 const Filter = () => {
+  const [selectedDate, setSelectedDate] = useState(null);
   const { filterDispatch, filterState } = useFilter();
   return (
     <div className='filter-wrapper'>
@@ -56,7 +59,6 @@ const Filter = () => {
           id='property-type'
           name='property'
           className='border sm-pd'
-          placeholder='Select the type of property'
           value={filterState.sortByHouse}
           onChange={(e) =>
             filterDispatch({
@@ -70,6 +72,19 @@ const Filter = () => {
           <option value='apartment'>Apartment</option>
           <option value='studio-apartment'>Studio apartment</option>
         </select>
+      </label>
+      <label className='filter-input'>
+        Date:
+        <DatePicker
+          selected={selectedDate}
+          onChange={(date) => setSelectedDate(date)}
+          dateFormat='dd/MM/yyyy'
+          minDate={new Date()}
+          showYearDropdown
+          scrollableMonthYearDropdown
+          placeholderText='Select the date to move in'
+          className='border sm-pd'
+        />
       </label>
       <Link to='/favourite'>
         <button className='lg-button'>Favourite Page</button>

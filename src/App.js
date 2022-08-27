@@ -10,6 +10,7 @@ function App() {
         <Route path='/' element={<PropertiesPage />} />
         <Route path='/favourite' element={<FavouritePage />} />
       </Routes>
+      <div className='footer'>Made by Srishti Gautam</div>
     </div>
   );
 }
