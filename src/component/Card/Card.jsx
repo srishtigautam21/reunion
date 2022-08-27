@@ -2,8 +2,8 @@ import React from "react";
 import { useFavourite } from "../../hooks/FavouriteContext";
 import "./Card.css";
 
-const Card = ({ id, data }) => {
-  const { rent, name, address, noOfBeds, noOfBathroom, area, image } = data;
+const Card = ({ data }) => {
+  const { rent, name, address, noOfBeds, noOfBathroom, area, image, id } = data;
   const { favouritePropertyList, addToFavourites, removeFromFavourites } =
     useFavourite();
 

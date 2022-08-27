@@ -16,6 +16,7 @@
 .border {
   border: none;
   background-color: rgb(254, 250, 250);
+  cursor: pointer;
 }
 .filter-input {
   display: flex;
@@ -32,4 +33,5 @@
   margin: 1rem 1rem;
   width: 12rem;
   height: 4rem;
+  cursor: pointer;
 }

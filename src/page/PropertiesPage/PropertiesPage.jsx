@@ -23,9 +23,12 @@ const PropertiesPage = () => {
       <Filter />
       <div className='page-wrapper'>
         {finalFilterData.length === 0 ? (
-          <div>
+          <div className='no-property'>
             <div>No properties match the given filter</div>
-            <button onClick={() => backToInitialProperties()}>
+            <button
+              className='lg-button'
+              onClick={() => backToInitialProperties()}
+            >
               Check other properties
             </button>
           </div>

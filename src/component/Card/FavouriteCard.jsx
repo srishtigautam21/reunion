@@ -3,12 +3,12 @@ import { useFavourite } from "../../hooks/FavouriteContext";
 
 const FavouriteCard = ({ favouritePropertyList }) => {
   const { removeFromFavourites } = useFavourite();
-  const { rent, name, address, noOfBeds, noOfBathroom, area, id } =
+  const { rent, name, address, noOfBeds, noOfBathroom, area, id, image } =
     favouritePropertyList;
   return (
     <div>
-      <div className='parent-positioning '>
-        {/* <img src={image} alt={name}></img> */}
+      <div className='parent-positioning card-container'>
+        <img src={image} alt={name}></img>
         <div className='inside-container '>
           <h2>$ {rent}</h2>
           <h3>{name}</h3>
